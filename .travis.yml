@@ -1,0 +1,4 @@
+# file: .travis.yml
+language: objective-c
+script:
+  - xcodebuild -project ContinuousDistributionExample.xcodeproj -scheme ContinuousDistributionExample -sdk iphonesimulator
