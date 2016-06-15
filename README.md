@@ -7,6 +7,9 @@
 7. Drag the dependency above your test target so it is built first.
 8. You will now have a new file in the xcshareddata/xcschemes directory underneath your Xcode project. This is the shared Scheme that you just configured. Check this file into your repository and xctool will be able to find and execute your tests.
 
+Copy ./scripts over to your repo. Set some permissions.
+
+1. chmod a+x ./scripts/travis/add-key.sh
 
 Deploy an app automatically to testflight using travis ci.
 
@@ -17,7 +20,7 @@ Deploy an app automatically to testflight using travis ci.
     * Your iPhone Distribution certificate into scripts/travis/dist.cer
     * Your iPhone Distribution private key into scripts/travis/dist.p12 (choose a password)
 4. Execute travis encrypt "KEY_PASSWORD=YOUR_KEY_PASSWORD" --add
-5. Execute travis encrypt "TEAM_TOKEN=TESTFLIGHT_TEAM_TOKEN" --add
-6. Execute travis encrypt "API_TOKEN=TESTFLIGHT_API_TOKEN" --add
+5. Execute travis encrypt "HOCKEY_APP_TOKEN=YOUR_TOKEN" --add
+6. Execute travis encrypt "HOCKEY_APP_ID=YOUR_APP_ID" --add
 7. Copy add-key.sh, remove-key.sh and testflight.sh into scripts/travis
 8. Commit
