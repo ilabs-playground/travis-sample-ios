@@ -9,15 +9,15 @@ if [[ "$TRAVIS_BRANCH" != "master" ]]; then
   exit 0
 fi
 
-PROVISIONING_PROFILE="$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_NAME.mobileprovision"
-OUTPUTDIR="$PWD/build/Release-iphoneos"
-ARCHIVE_DIR="$OUTPUT_DIR/$APP_NAME.xcarchive"
+ARCHIVE_DIR="$PWD/build/archive/$APP_NAME.xcarchive"
+OUTPUT_DIR="$PWD/build/ipa"
 
-#echo "Building $APP_NAME"
-#xcodebuild -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" clean build
+echo "Building $APP_NAME"
+xcodebuild CODE_SIGN_IDENTITY="$DEVELOPER_NAME" PROVISIONING_PROFILE="$PROVISION_UUID" -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" archive -archivePath $ARCHIVE_DIR 
 
 echo "Packaging $APP_NAME"
-xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
+xcodebuild -exportArchive -archivePath $ARCHIVE_DIR -exportPath $OUTPUT_DIR
+#xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
 
 zip -r -9 "$OUTPUT_DIR/$APP_NAME.app.dSYM.zip" "$ARCHIVE_DIR/dSYMs/$APP_NAME.app.dSYM"
 

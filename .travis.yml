@@ -8,7 +8,7 @@ after_success:
 - "./scripts/travis/build.sh"
 env:
   global:
-  - PROFILE_NAME="iLabs_Wild_Card_alt_certificate_Distribution"
+  - PROFILE_UUID="dd107f78-5e96-4f08-8faa-adaaaa8a5185"
   - APP_NAME="TravisSample"
   - 'DEVELOPER_NAME="iPhone Distribution: Interactive Labs, Inc"'
   - secure: IkWA5l2s0wG7aTq2xbQt/vtC2yDi//oLgx+vLwGboQWBBhYLmY+f5VqQKrdv2YqG5RqbF2y8EkqykSS4vy5Bp20BhBhPmYCHfnDvgrBHZSNpVUvq1fwFotlExJ6cnFgKlsrFA2fFE3ng/bqPYwsWylzaAtc2UBZjU2wCL4FPrA2PcAFkVVG2WpOy5BYKlkC3bEPJQ4g3liw2pcmZv3bPD5TYfhMoaFvw6zmGhvEjHZYAdzhCU+BU3jpRPr+femhCdthSXCJO+eZALsoJi33WKf93CGO81UY/lb7XGMRgzdYpFrcxf4HmoXOP9McVBcGYXf0wyhjCkMV+cYKAz1i3YM50aenl7n1Nqr79TW94qSaPvGJoEtbC38Z5Yub5tOhck0JhslrL8DwB2ATSlIFMAOC+iMsP+zIS9My9IFWe2E0+8rnUwjlIrtjFE3WmVIZG4PKz5KaPfDQX06wp5sp2v1UF7ob/jiR+S8AQNBHivjW/HQYi+wX0ev3HfQ15D1BCOIqbx14O5rSHaDKyrF7TiWjRF03CzQLFa9m1ZHvcRBl7M1SSMDA3iU2s3Uv4lwFb1xOzLbqHufroXHwyinBejFg6aCXnGHT50z8ffCpoTPXZ1n9TMIZCnRHxDStgTg2rCoi3z0KBjdLCBAfbIf8QZP1TNQoyE3AuwtMu0xlHKwU=
