@@ -27,7 +27,9 @@ curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \
   -F ipa="@$OUTPUT_DIR/$APP_NAME.ipa" \
   -H "X-HockeyAppToken: $HOCKEY_APP_TOKEN"
 
-if [[ $? -ne 0 ]]; then
+if [[ $? -ne 0 ]]
+then
   echo "Error: Fail uploading to HockeyApp"
-  exit 1
+else
+  echo "Success: Uploaded to Hockeyapp"
 fi
