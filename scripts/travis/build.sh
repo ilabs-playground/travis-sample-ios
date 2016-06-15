@@ -12,10 +12,10 @@ fi
 PROVISIONING_PROFILE="$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_NAME.mobileprovision"
 OUTPUTDIR="$PWD/build/Release-iphoneos"
 
-echo "Building $APP_NAME"
-xcodebuild -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" clean build
+#echo "Building $APP_NAME"
+#xcodebuild -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" clean build
 
-echo "Packinage $APP_NAME"
+echo "Packaging $APP_NAME"
 xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
 
 echo "Upload to hockeyapp."
