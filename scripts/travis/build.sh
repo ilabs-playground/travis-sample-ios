@@ -13,7 +13,7 @@ ARCHIVE_DIR="$PWD/build/archive/$APP_NAME.xcarchive"
 OUTPUT_DIR="$PWD/build/ipa"
 
 echo "Building $APP_NAME"
-xcodebuild CODE_SIGN_IDENTITY="$DEVELOPER_NAME" PROVISIONING_PROFILE="$PROVISION_UUID" -workspace "$APP_NAME.xcworkspace" -scheme "$APP_NAME" archive -archivePath $ARCHIVE_DIR 
+xcodebuild CODE_SIGN_IDENTITY="$DEVELOPER_NAME" PROVISIONING_PROFILE="$PROVISION_UUID" -project "$APP_NAME.xcodeproj" -scheme "$APP_NAME" archive -archivePath $ARCHIVE_DIR 
 
 echo "Packaging $APP_NAME"
 xcodebuild -exportArchive -archivePath $ARCHIVE_DIR -exportPath $OUTPUT_DIR
