@@ -10,15 +10,17 @@ if [[ "$TRAVIS_BRANCH" != "master" ]]; then
 fi
 
 ARCHIVE_DIR="$PWD/build/archive/$APP_NAME.xcarchive"
-OUTPUT_DIR="$PWD/build/$APP_NAME"
+OUTPUT_DIR="$PWD/build"
 
 echo "Building $APP_NAME"
 xcodebuild CODE_SIGN_IDENTITY="$DEVELOPER_NAME" PROVISIONING_PROFILE="$PROVISION_UUID" -project "$APP_NAME.xcodeproj" -scheme "$APP_NAME" archive -archivePath $ARCHIVE_DIR 
 
 echo "Packaging $APP_NAME"
-xcodebuild -exportArchive -archivePath $ARCHIVE_DIR -exportPath $OUTPUT_DIR
+xcodebuild -exportArchive -archivePath $ARCHIVE_DIR -exportPath "$OUTPUT_DIR/$APP_NAME"
 
-#zip -r -9 "$OUTPUT_DIR/$APP_NAME.app.dSYM.zip" "$ARCHIVE_DIR/dSYMs/$APP_NAME.app.dSYM"
+DSYM_FILE="$OUTPUT_DIR/$APP_NAME.app.dSYM.zip"
+
+zip -r -9 "$DSYM_FILE" "$ARCHIVE_DIR/dSYMs/$APP_NAME.app.dSYM"
 
 echo "Upload to hockeyapp."
 curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \
@@ -26,9 +28,9 @@ curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \
   -F notify="0" \
   -F notes="Automated Build" \
   -F notes_type="0" \
+	-F dsym_path="@$DSYM_FILE" \
   -F ipa="@$OUTPUT_DIR.ipa" \
   -H "X-HockeyAppToken: $HOCKEY_APP_TOKEN"
-#	-F dsym_path="@$OUTPUT_DIR/$APP_NAME.app.dSYM.zip" \
 
 if [[ $? -ne 0 ]]
 then
