@@ -26,7 +26,7 @@ curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \
   -F notify="0" \
   -F notes="Automated Build" \
   -F notes_type="0" \
-  -F ipa="@$OUTPUT_DIR/$APP_NAME.ipa" \
+  -F ipa="@$OUTPUT_DIR.ipa" \
   -H "X-HockeyAppToken: $HOCKEY_APP_TOKEN"
 #	-F dsym_path="@$OUTPUT_DIR/$APP_NAME.app.dSYM.zip" \
 
