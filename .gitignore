@@ -2,6 +2,7 @@
 
 Pods
 
+*.xcuserdatad
 *.xcarchive
 *.xcworkspace
 *.swp
