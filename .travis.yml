@@ -11,4 +11,4 @@ env:
   - KEY_PASSWORD=1234
   - PROFILE_UUID="dd107f78-5e96-4f08-8faa-adaaaa8a5185"
   - APP_NAME="TravisSample"
-  - DEVELOPER_NAME='DEVELOPER_NAME="iPhone Distribution: Interactive Labs, Inc"'
+  - 'DEVELOPER_NAME="iPhone Distribution: Interactive Labs, Inc"'
