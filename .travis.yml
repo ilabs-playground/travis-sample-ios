@@ -12,3 +12,5 @@ env:
   - PROFILE_UUID="dd107f78-5e96-4f08-8faa-adaaaa8a5185"
   - APP_NAME="TravisSample"
   - 'DEVELOPER_NAME="iPhone Distribution: Interactive Labs, Inc"'
+  - HOCKEY_APP_ID=bd7a3ada0c954322b42dc09fa64f9d9a
+  - HOCKEY_APP_TOKEN=f90a5f44e7350a3c105b4e8b299d1485
